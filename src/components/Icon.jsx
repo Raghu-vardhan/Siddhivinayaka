@@ -27,6 +27,10 @@ const P = {
   grid: <><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></>,
   factory: <><path d="M4 7h13v10H4zM17 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></>,
   users: <path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0ZM4 21a8 8 0 0 1 16 0"/>,
+  award: <><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></>,
+  leaf: <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2-2 6-6 6 2 0 4-1 5-3 0 6-5 10-7 15z"/>,
+  layers: <><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></>,
+  doc: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></>,
 }
 
 export default function Icon({ name, size = 24, stroke = 1.7, ...rest }) {

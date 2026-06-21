@@ -2,10 +2,14 @@ import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
 import Reveal from './Reveal.jsx'
 
-export function PageHero({ crumb, title, text }) {
+const DEFAULT_BANNER = 'https://siddivinayaka2.netlify.app/images/about/factory.jpeg'
+
+export function PageHero({ crumb, title, text, img = DEFAULT_BANNER }) {
   return (
     <section className="phero">
-      <div className="wrap">
+      <img className="phero__bg" src={img} alt="" aria-hidden="true" />
+      <div className="phero__overlay" />
+      <div className="wrap phero__content">
         <Reveal className="crumb"><Link to="/">Home</Link><span>/</span>{crumb}</Reveal>
         <Reveal as="h1">{title}</Reveal>
         <Reveal as="p" delay={1}>{text}</Reveal>
