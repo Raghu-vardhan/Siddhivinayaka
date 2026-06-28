@@ -6,8 +6,8 @@
 
 :root{
   /* Premium minimal — logo teal, light & airy */
-  --teal-900:#0f2422;   /* footer / topbar only */
-  --teal-800:#1b3d3a;   /* dark section bg */
+  --teal-900:#0a5555;   /* footer / topbar only */
+  --teal-800:#0a5555;   /* dark section bg */
   --teal-700:#1b5c58;   /* logo dark teal — headings, nav active */
   --teal-600:#217a74;   /* medium teal */
   --teal-500:#2bb9a9;   /* logo vivid teal — PRIMARY accent */
@@ -24,7 +24,7 @@
   --paper-2:#f8fffe;    /* section alt bg */
   --cream:#f0faf9;      /* = teal-50 */
 
-  --gold:#2bb9a9;       /* vivid teal accent (buttons, highlights) */
+  --gold:#0a5555;       /* vivid teal accent (buttons, highlights) */
 
   --maxw:1240px;
   --gut:clamp(20px,5vw,64px);
@@ -112,9 +112,9 @@ h3{font-size:clamp(1.3rem,2vw,1.7rem)}
    TOPBAR + HEADER
    ============================================================ */
 .topbar{
-  background:#299289;color:var(--teal-700);
+  background:var(--teal-900);color:rgba(255,255,255,.75);
   font-size:.82rem;font-family:var(--f-body);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:42px;flex-wrap:wrap}
 .topbar a{transition:.3s;display:inline-flex;align-items:center;gap:.45em;color:#fff}
@@ -131,7 +131,7 @@ header.nav{
 }
 header.nav.scrolled{box-shadow:var(--shadow-sm);background:rgba(255,255,255,.96)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:80px;gap:24px}
-.brand img{height:46px;width:auto}
+.brand img{width:auto;height:80px;}
 .menu{display:flex;align-items:center;gap:4px}
 .menu>li{position:relative}
 .menu>li>a{
@@ -180,9 +180,6 @@ header.nav.scrolled{box-shadow:var(--shadow-sm);background:rgba(255,255,255,.96)
 .hero{position:relative;overflow:hidden;background:var(--teal-700);color:#fff;min-height:min(100vh,780px);display:flex;align-items:center}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(105deg,rgba(27,92,88,.82) 0%,rgba(27,92,88,.62) 38%,rgba(27,92,88,.28) 65%,rgba(27,92,88,.04) 100%),
-    linear-gradient(to top,rgba(15,36,34,.35) 0%,transparent 40%);
 }
 .hero .mol{position:absolute;inset:0;opacity:.25;pointer-events:none;z-index:2}
 .hero .wrap{position:relative;z-index:3;display:block;padding-block:clamp(100px,12vw,160px);width:100%}
@@ -194,7 +191,7 @@ header.nav.scrolled{box-shadow:var(--shadow-sm);background:rgba(255,255,255,.96)
 .hero p.lead{color:rgba(255,255,255,.82);max-width:46ch}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
 .hero-stats{display:flex;gap:34px;margin-top:48px;flex-wrap:wrap}
-.hero-stats .num{font-family:var(--f-display);font-size:2.1rem;font-weight:800;color:var(--gold);line-height:1}
+.hero-stats .num{font-family:var(--f-display);font-size:2.1rem;font-weight:800;line-height:1}
 .hero-stats .lbl{font-size:.8rem;color:rgba(255,255,255,.65);margin-top:6px;letter-spacing:.04em}
 .hero-card{
   position:relative;border-radius:var(--r-xl);overflow:hidden;
@@ -243,7 +240,7 @@ header.nav.scrolled{box-shadow:var(--shadow-sm);background:rgba(255,255,255,.96)
 .hs__tag{
   position:absolute;top:18px;right:18px;z-index:3;
   background:rgba(27,92,88,.72);backdrop-filter:blur(8px);
-  color:var(--gold);font-family:var(--f-mono);font-size:.65rem;
+  color:#fff;font-family:var(--f-mono);font-size:.65rem;
   font-weight:700;letter-spacing:.18em;text-transform:uppercase;
   padding:6px 13px;border-radius:999px;border:1px solid rgba(43,185,169,.3);
   animation:tagpop .5s var(--ease) both;
@@ -470,7 +467,7 @@ header.nav.scrolled{box-shadow:var(--shadow-sm);background:rgba(255,255,255,.96)
 .stat .lbl{color:rgba(255,255,255,.7);margin-top:10px;font-size:.92rem}
 @media(max-width:760px){.stats-band{grid-template-columns:1fr 1fr;gap:36px 20px}}
 
-/* ---------- Why choose / feature cards ---------- */
+/* ---------- Why choose / feature cards (legacy — other pages) ---------- */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
 .why{background:#fff;padding:40px 34px;transition:.4s var(--ease)}
 .why .no{font-family:var(--f-mono);font-size:.85rem;color:var(--gold);font-weight:700;letter-spacing:.1em}
@@ -518,6 +515,75 @@ header.nav.scrolled{box-shadow:var(--shadow-sm);background:rgba(255,255,255,.96)
 .proc-step h4{font-size:1.05rem}
 .proc-media img{border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%;height:100%;object-fit:cover}
 @media(max-width:860px){.process{grid-template-columns:1fr}}
+
+/* ============================================================
+   SPECIALIZED SERVICES — tab-list layout (PDF Section 4)
+   ============================================================ */
+.svc-section{background:var(--paper-2);position:relative;overflow:hidden}
+.svc-section::before{
+  content:"";position:absolute;pointer-events:none;z-index:0;
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(43,185,169,.07),transparent 68%);
+  top:-180px;left:-120px;
+}
+.svc-section::after{
+  content:"";position:absolute;pointer-events:none;z-index:0;
+  width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(43,185,169,.06),transparent 68%);
+  bottom:-120px;right:-80px;
+}
+.svc-section>.wrap{position:relative;z-index:1}
+.svc-grid{
+  display:grid;grid-template-columns:1fr 1.08fr;
+  gap:clamp(40px,6vw,84px);align-items:start;
+}
+.svc-chip{
+  display:inline-flex;align-items:center;
+  border:1.5px solid var(--line);border-radius:999px;
+  padding:7px 20px;font-size:.88rem;color:var(--slate);
+  font-family:var(--f-display);font-weight:500;
+  background:#fff;
+}
+.svc-heading{
+  font-size:clamp(1.9rem,3.2vw,2.8rem);
+  font-weight:700;line-height:1.08;letter-spacing:-.025em;
+  color:var(--ink);
+}
+.svc-steps{
+  display:flex;flex-direction:column;
+  border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--line);
+  background:#fff;
+}
+.svc-step{
+  position:relative;display:flex;align-items:center;gap:16px;
+  padding:17px 22px;cursor:pointer;transition:.3s var(--ease);
+  background:#fff;border:none;border-bottom:1px solid var(--line);
+  text-align:left;width:100%;
+}
+.svc-step:last-child{border-bottom:none}
+.svc-step:hover:not(.svc-step--active){background:var(--teal-50)}
+.svc-step--active{background:var(--teal-700);color:#fff}
+.svc-step__ic{
+  flex:0 0 auto;width:40px;height:40px;border-radius:10px;
+  display:grid;place-items:center;transition:.3s var(--ease);
+  background:var(--teal-50);color:var(--teal-600);
+}
+.svc-step--active .svc-step__ic{background:rgba(255,255,255,.16);color:#fff}
+.svc-step:hover:not(.svc-step--active) .svc-step__ic{background:var(--teal-100);color:var(--teal-700)}
+.svc-step span{
+  font-family:var(--f-display);font-weight:500;font-size:.97rem;
+  flex:1;line-height:1.3;
+}
+.svc-step__bar{
+  position:absolute;right:0;top:0;bottom:0;width:4px;
+  background:rgba(255,255,255,.45);border-radius:2px 0 0 2px;
+}
+@media(max-width:860px){.svc-grid{grid-template-columns:1fr}}
+@media(max-width:560px){
+  .svc-step{padding:14px 16px;gap:12px}
+  .svc-step__ic{width:36px;height:36px}
+}
 
 /* ---------- Timeline ---------- */
 .timeline{position:relative;max-width:880px;margin-inline:auto;padding-left:0}
@@ -986,19 +1052,167 @@ a{cursor:pointer}
 @media(max-width:560px){.cat__img{flex:0 0 130px}}
 
 /* ============================================================
-   CERTIFICATIONS GRID
+   WHY CHOOSE US — 2 × 2 showcase grid (PDF Section 3)
+   ============================================================ */
+.why-showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:clamp(36px,5vw,56px)}
+.why-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:44px 38px;transition:.5s var(--ease);position:relative;overflow:hidden;
+}
+.why-card::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 60%,rgba(43,185,169,.04) 100%);
+  pointer-events:none;
+}
+.why-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);border-color:var(--teal-300)}
+.why-card__ic{
+  width:72px;height:72px;border-radius:50%;
+  display:grid;place-items:center;margin-bottom:26px;
+  transition:.4s var(--ease);
+}
+.why-card__ic svg{width:32px;height:32px}
+.why-card__ic--01{background:#e85a4f;color:#fff}
+.why-card__ic--02{background:var(--teal-500);color:#fff}
+.why-card__ic--03{background:#f0a500;color:#fff}
+.why-card__ic--04{background:#3b82f6;color:#fff}
+.why-card:hover .why-card__ic{transform:scale(1.08) rotate(-4deg)}
+.why-card h3{font-size:1.28rem;margin-bottom:14px;color:var(--ink)}
+.why-card p{color:var(--slate);font-size:.97rem;line-height:1.72}
+@media(max-width:860px){.why-showcase{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.why-showcase{grid-template-columns:1fr}.why-card{padding:32px 26px}}
+
+/* ============================================================
+   INDUSTRIES WE SERVE — dark image section (PDF Section 5)
+   ============================================================ */
+.ind-showcase{
+  background:var(--teal-800);
+  padding-block:clamp(72px,9vw,120px);
+  position:relative;overflow:hidden;
+}
+.ind-showcase::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 600px at 80% 50%,rgba(43,185,169,.08),transparent 65%);
+}
+.ind-showcase__inner{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:clamp(40px,6vw,84px);
+  align-items:center;
+  position:relative;z-index:1;
+}
+.ind-showcase__text .eyebrow::before{background:var(--teal-400)}
+.ind-list{display:flex;flex-direction:column;gap:10px;margin:28px 0 0}
+.ind-list-item{
+  display:flex;align-items:center;gap:16px;
+  font-size:1.04rem;color:rgba(255,255,255,.88);
+  padding:15px 20px;border-radius:var(--r);
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.09);
+  font-family:var(--f-display);font-weight:500;
+  transition:.3s var(--ease);cursor:default;
+}
+.ind-list-item:hover{background:rgba(255,255,255,.14);border-color:rgba(43,185,169,.3)}
+.ind-list-dot{width:9px;height:9px;border-radius:50%;background:var(--teal-400);flex:0 0 auto;box-shadow:0 0 8px rgba(43,185,169,.6)}
+.ind-showcase__imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ind-img-card{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  aspect-ratio:2/3;box-shadow:0 16px 40px -16px rgba(0,0,0,.5);
+  transition:.45s var(--ease);
+}
+.ind-img-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px -20px rgba(0,0,0,.6)}
+.ind-img-card img{width:100%;height:100%;object-fit:cover;transition:.8s var(--ease)}
+.ind-img-card:hover img{transform:scale(1.07)}
+.ind-img-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:36px 14px 16px;
+  background:linear-gradient(to top,rgba(8,26,24,.95) 0%,transparent 100%);
+  color:#fff;font-family:var(--f-display);font-weight:700;font-size:.9rem;
+  text-align:center;letter-spacing:.01em;
+}
+@media(max-width:960px){
+  .ind-showcase__inner{grid-template-columns:1fr}
+  .ind-showcase__imgs{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:560px){
+  .ind-showcase__imgs{grid-template-columns:1fr;gap:12px}
+  .ind-img-card{aspect-ratio:16/9}
+}
+
+/* ============================================================
+   COMPANY PROFILE (PDF Section 6)
+   ============================================================ */
+.profile-grid{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:clamp(40px,6vw,84px);
+  align-items:start;
+}
+.profile-media-wrap{display:flex;flex-direction:column;gap:18px}
+.profile-img{
+  border-radius:var(--r-xl);overflow:hidden;
+  aspect-ratio:4/3;box-shadow:var(--shadow-lg);
+  position:relative;
+}
+.profile-img img{width:100%;height:100%;object-fit:cover;transition:.6s var(--ease)}
+.profile-img:hover img{transform:scale(1.03)}
+.profile-dots{display:flex;gap:8px;justify-content:center;padding-top:4px}
+.profile-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);transition:.3s}
+.profile-dots span.active{background:var(--teal-500);width:22px;border-radius:4px}
+.profile-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;margin-top:32px;
+}
+.profile-stat{
+  background:#fff;padding:22px 18px;text-align:center;
+  transition:.35s var(--ease);
+}
+.profile-stat:hover{background:var(--teal-50)}
+.profile-stat__ic{
+  width:44px;height:44px;border-radius:11px;
+  background:var(--teal-50);color:var(--teal-600);
+  display:grid;place-items:center;margin:0 auto 10px;
+  transition:.35s var(--ease);
+}
+.profile-stat:hover .profile-stat__ic{background:var(--teal-600);color:#fff}
+.profile-stat h4{font-size:1.06rem;margin-bottom:3px;color:var(--teal-800)}
+.profile-stat p{font-size:.78rem;color:var(--mute);line-height:1.4}
+@media(max-width:920px){
+  .profile-grid{grid-template-columns:1fr}
+  .profile-stats{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:600px){.profile-stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ============================================================
+   CERTIFICATIONS GRID (PDF Section 7 — Company Certificates)
    ============================================================ */
 .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .cert{
   background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:34px;transition:.4s var(--ease);
+  padding:34px;transition:.4s var(--ease);position:relative;overflow:hidden;
+}
+.cert::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--teal-400),var(--teal-600));
+  transform:scaleX(0);transform-origin:left;transition:.5s var(--ease);
 }
 .cert:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
+.cert:hover::before{transform:scaleX(1)}
+.cert__ic-wrap{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .cert .ic{
   width:54px;height:54px;border-radius:14px;background:var(--teal-50);
-  color:var(--teal-600);display:grid;place-items:center;margin-bottom:20px;
+  color:var(--teal-600);display:grid;place-items:center;flex:0 0 auto;
+  transition:.35s var(--ease);
 }
+.cert:hover .ic{background:var(--teal-600);color:#fff}
 .cert .ic svg{width:26px;height:26px}
+.cert__badge{
+  font-family:var(--f-mono);font-size:.63rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal-600);background:var(--teal-50);
+  padding:4px 10px;border-radius:999px;border:1px solid var(--teal-100);
+}
 .cert h3{font-size:1.08rem;margin-bottom:10px}
 .cert p{color:var(--slate);font-size:.92rem;line-height:1.6}
 @media(max-width:900px){.cert-grid{grid-template-columns:1fr 1fr}}

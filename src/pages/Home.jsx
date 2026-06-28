@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Counter from '../components/Counter.jsx'
-import ScrollWords from '../components/ScrollWords.jsx'
-import { SectionHead, Stat, CTA } from '../components/Bits.jsx'
+import { SectionHead, Stat } from '../components/Bits.jsx'
 import { PRODUCTS, IMG, COMPANY } from '../data/site.js'
 
 /* ── Banner slider ── */
@@ -90,15 +89,15 @@ function useParallax(ref, factor = 0.08) {
 /* ── Data ── */
 const tickerItems = ['Sulpho Vinyl Sulphone','Sulpho Tobias Acid','Sulfo OAVS','Vinyl Sulphone Ester','K-Acid','H. Acid','3,5 DABA','6 Acetyl OAPSA','6 NAPSA','3,5-Dinitrobenzoic Acid']
 
+/* PDF Section 3 — 4 cards matching reference design */
 const whys = [
-  ['01','Quality Products','Premium-grade dye intermediates with rigorous in-house QC. Every batch is tested for purity, grade and consistency — meeting international quality benchmarks.'],
-  ['02','Manufacturing Expertise','Advanced production facilities and over 15 years of chemical manufacturing experience with a skilled technical team ensuring consistent batch quality.'],
-  ['03','Reliable Supply Chain','Multi-branch operations across Gujarat ensure consistent stock availability and on-time delivery for bulk, regular and urgent export orders.'],
-  ['04','Export Experience','Serving customers in 10+ countries with full compliance to international shipping documentation, regulatory requirements and export formalities.'],
-  ['05','Customer Support','Dedicated technical team providing product selection guidance, sample supply, custom specification support and responsive after-sales service.'],
-  ['06','Competitive Pricing','Direct manufacturer pricing with no middlemen — flexible bulk discounts and payment terms available for long-term business partners worldwide.'],
+  { no: '01', ic: 'check',    h: 'Vetted Raw Materials',           p: 'We only use known and trusted suppliers with a Certificate of Analysis (COA) to ensure the best possible products and consistent batch quality.' },
+  { no: '02', ic: 'shield',   h: 'Quality Management',            p: 'Our quality management system provides a structure and framework to meet customer requirements, with processes in place to guide corrective actions when needed.' },
+  { no: '03', ic: 'gear',     h: 'LEAN Data-Driven Manufacturing', p: 'We use lean principles to connect plant-floor operations to customer demand in a continuous flow. Digital connections unify, automate and streamline operations directly linked to customer requirements.' },
+  { no: '04', ic: 'award',    h: 'Industry Expertise & Excellence',p: 'We employ leading experts within niche market segments, delivering a complete customer experience via sales, service and support excellence.' },
 ]
 
+/* PDF Section 4 — Specialized Services (8 steps) */
 const steps = [
   ['search','01','Technical Consultation & Product Selection'],
   ['gear','02','Custom Manufacturing Solutions'],
@@ -110,6 +109,7 @@ const steps = [
   ['wrench','08','Reliable After-Sales Support'],
 ]
 
+/* Product categories */
 const categories = [
   {
     img: `${IMG}/2025/02/Sulpho-para-vinyl-sulphone-1.jpg`,
@@ -137,31 +137,71 @@ const categories = [
   },
 ]
 
+/* PDF Section 5 — Industries We Serve (image-based, 3 categories) */
+const industryImages = [
+  { img: SLIDES[0].img, name: 'Paper & Textiles',     desc: 'Reactive dye intermediates for vibrant, lasting textile and paper colours' },
+  { img: SLIDES[1].img, name: 'Food Colours',          desc: 'High-purity intermediates for safe and stable food-grade colorant applications' },
+  { img: SLIDES[2].img, name: 'Optical Brighteners',   desc: 'Specialty compounds for optical brightening in textile and paper applications' },
+]
+
+/* PDF Section 6 — Company Profile stats */
+const profileStats = [
+  { ic: 'clock',   h: '15+ Years',    p: 'of Experience' },
+  { ic: 'award',   h: 'ISO Certified', p: 'International Certificate' },
+  { ic: 'beaker',  h: 'Active R&D',   p: 'Investment' },
+  { ic: 'globe2',  h: 'Eco-Focused',  p: 'Sustainability' },
+]
+
+/* PDF Section 7 — Company Certificates */
 const certs = [
-  { ic: 'award', h: 'ISO 9001:2015', p: 'Certified quality management system ensuring consistent manufacturing processes and measurable, continuous quality improvement.' },
+  { ic: 'award',  h: 'ISO 9001:2015',          p: 'Certified quality management system ensuring consistent manufacturing processes and measurable, continuous quality improvement.' },
   { ic: 'shield', h: 'In-House QC Laboratory', p: 'Fully equipped quality control lab for batch testing, purity analysis and specification verification at every production stage.' },
-  { ic: 'check', h: 'Certificate of Analysis', p: 'Detailed COA provided with every shipment — covering purity, grade, moisture content and full product specifications.' },
-  { ic: 'globe', h: 'International Compliance', p: 'Products meet international regulatory standards enabling export compliance across 10+ countries in Asia, Europe and beyond.' },
-  { ic: 'search', h: 'Third-Party Inspection', p: 'Independent third-party inspection and laboratory testing available on request for critical or large-volume export orders.' },
-  { ic: 'star', h: 'Continuous Improvement', p: 'Ongoing process audits, equipment upgrades and quality reviews to maintain and continually raise our production standards.' },
-]
-
-const industries = [
-  { ic: 'textile', h: 'Textile Industry', p: 'Reactive & acid dye intermediates for fabric dyeing and finishing' },
-  { ic: 'doc', h: 'Paper Industry', p: 'Specialty chemical intermediates for paper manufacturing' },
-  { ic: 'drop', h: 'Leather Industry', p: 'High-quality dye compounds for leather processing and finishing' },
-  { ic: 'paint', h: 'Ink & Coating Industry', p: 'Pigment intermediates for printing inks and surface coatings' },
-  { ic: 'flask', h: 'Chemical Manufacturing', p: 'Synthesis building blocks for downstream chemical production' },
-  { ic: 'beaker', h: 'Specialty Chemicals', p: 'Custom-grade intermediates for specialty chemical applications' },
-]
-
-const team = [
-  { img: `${IMG}/2025/04/Untitled-design-2-1.png`, role: 'Managing Partner & Head of Operations', name: 'Sanjay Gupta', p: 'Founder and visionary behind Siddhivinayak. Deep expertise in chemical manufacturing with an uncompromising commitment to quality and excellence.' },
-  { img: `${IMG}/2025/04/t1-2.jpeg`, role: 'Managing Partner — Production & Quality', name: 'Rajesh Gupta', p: 'Oversees operations, drives innovation and builds strong client relationships — streamlining production and expanding presence across major chemical markets.' },
-  { img: `${IMG}/2025/07/WhatsApp-Image-2025-07-12-at-17.22.21-scaled-e1752321258968.jpeg`, role: 'Executive Director — Business Development', name: 'Yash Gupta', p: 'Drives growth strategy, global partnerships and market expansion with a data-driven approach, opening new export corridors and industry verticals.' },
+  { ic: 'check',  h: 'Certificate of Analysis', p: 'Detailed COA provided with every shipment — covering purity, grade, moisture content and full product specifications.' },
+  { ic: 'globe',  h: 'International Compliance',p: 'Products meet international regulatory standards enabling export compliance across 10+ countries in Asia, Europe and beyond.' },
+  { ic: 'search', h: 'Third-Party Inspection',  p: 'Independent third-party inspection and laboratory testing available on request for critical or large-volume export orders.' },
+  { ic: 'star',   h: 'Continuous Improvement',  p: 'Ongoing process audits, equipment upgrades and quality reviews to maintain and continually raise our production standards.' },
 ]
 
 const clientLogos = ['1','2','3','5','6','7','8','9-1','11-1','12-1','13','14-1','15']
+
+/* ── Specialized Services — interactive tab list (PDF Section 4) ── */
+function SpecializedServices() {
+  const [activeIdx, setActiveIdx] = useState(0)
+  return (
+    <section className="section svc-section">
+      <div className="wrap">
+        <div className="svc-grid">
+          <Reveal fx="left" className="svc-text">
+            <span className="svc-chip">We Offer</span>
+            <h2 className="svc-heading" style={{ marginTop: '20px' }}>
+              Specialized <span className="text-teal">Services</span>
+            </h2>
+            <p style={{ marginTop: '18px', color: 'var(--slate)', lineHeight: 1.8, fontSize: '1rem' }}>
+              At Siddhivinayak, every order is treated as a partnership. Our service process covers all stages, starting with understanding customer requirements, followed by precise manufacturing with advanced technology, strict quality control, secure packaging, and dedicated after-sales support. Each batch is thoroughly tested to meet international standards, ensuring consistency, safety, and complete satisfaction with every delivery.
+            </p>
+          </Reveal>
+          <Reveal fx="right" delay={1}>
+            <div className="svc-steps">
+              {steps.map(([ic, n, h], i) => (
+                <button
+                  key={n}
+                  className={`svc-step${i === activeIdx ? ' svc-step--active' : ''}`}
+                  onClick={() => setActiveIdx(i)}
+                >
+                  <div className="svc-step__ic">
+                    <Icon name={ic} size={20} stroke={1.8} />
+                  </div>
+                  <span>{h}</span>
+                  {i === activeIdx && <div className="svc-step__bar" />}
+                </button>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 /* ── Homepage Inquiry Form ── */
 function HomeInquiry() {
@@ -300,58 +340,38 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── 2. COMPANY OVERVIEW ── */}
-      <section className="section section--aura">
-        <div className="wrap">
-          <Reveal fx="clip">
-            <SectionHead center eyebrow="Company Overview" title="Integrated chemical solutions, built on 15 years of trust" text="Siddhivinayak Dyes & Chemical Industries is a leading manufacturer and exporter of premium dye intermediates and specialty chemicals, serving industries across India and 10+ countries worldwide." />
-          </Reveal>
-          <div className="pillars">
-            <Reveal className="pillar" fx="scale">
-              <div className="ic"><Icon name="clock" size={28} /></div>
-              <h3>15+ Years of Experience</h3>
-              <p>Founded in 2010, Siddhivinayak brings over 15 years of deep expertise in dye intermediate manufacturing — with a track record of consistent quality, reliable supply and trusted partnerships worldwide.</p>
-            </Reveal>
-            <Reveal className="pillar" delay={1} fx="scale">
-              <div className="ic"><Icon name="building" size={28} /></div>
-              <h3>Manufacturing Capabilities</h3>
-              <p>State-of-the-art production facilities in Ahmedabad with advanced manufacturing processes, a skilled technical workforce and rigorous in-house quality control at every production stage.</p>
-            </Reveal>
-            <Reveal className="pillar" delay={2} fx="scale">
-              <div className="ic"><Icon name="globe2" size={28} /></div>
-              <h3>Global Presence</h3>
-              <p>Exporting premium-grade dye intermediates to 10+ countries across Asia, Europe and beyond — with 199+ satisfied clients and a strong, growing international business network.</p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ABOUT SPLIT ── */}
+      {/* ── 2. MORE ABOUT US ── */}
       <section className="section bg-paper2">
         <div className="wrap">
           <div className="split">
             <div ref={splitParallaxRef} className="split-parallax">
               <Reveal fx="left" className="split-media">
                 <span className="frame"></span>
-                <img src={`${IMG}/2025/02/Shiddhivinayak-image-1-01.jpg`} alt="Production facility" />
+                <img src={`${IMG}/2025/02/Shiddhivinayak-image-1-01.jpg`} alt="Siddhivinayak production facility" />
               </Reveal>
             </div>
             <Reveal delay={1} fx="right">
-              <p className="eyebrow">About the Company</p>
-              <ScrollWords
-                text="Building blocks of colour, since 2010"
-                className="head"
-                style={{ marginTop: '18px' }}
-              />
-              <p className="lead" style={{ marginTop: '16px' }}>Siddhivinayak Dyes & Chemical Industries is a trusted manufacturer and exporter of premium dye intermediates and specialty chemicals. Our high-quality organic compounds serve as essential building blocks for vibrant, durable colorants across multiple industries worldwide.</p>
-              <p style={{ marginTop: '12px', color: 'var(--slate)' }}>From our manufacturing base in Ahmedabad, we serve 199+ clients across India and 10+ countries — built entirely on consistency, transparency and long-term trust.</p>
-              <div className="feat-grid">
+              <p className="eyebrow">More About Us</p>
+              <h2 className="head" style={{ marginTop: '18px' }}>
+                Crafting Quality Dyes &amp; Chemicals for a{' '}
+                <span className="text-teal">Vibrant Tomorrow</span>
+              </h2>
+              <p className="lead" style={{ marginTop: '16px' }}>
+                Established in 2010 as Siddhivinayak Dyes &amp; Chemical Industries, the company began with a clear vision to deliver reliable chemical solutions to the market. We transitioned into full-scale manufacturing with a modern production facility in Ahmedabad, Gujarat.
+              </p>
+              <p style={{ marginTop: '12px', color: 'var(--slate)' }}>
+                This strategic move allowed us to bring deep industry knowledge in-house, giving us complete control over quality, consistency, and delivery. Today, Siddhivinayak is recognised as a trusted name in the dyes and intermediates industry, known for a legacy of commitment to quality, customer-centric solutions, and continuous innovation.
+              </p>
+              <div className="feat-grid" style={{ marginTop: '28px' }}>
                 <div className="feat"><div className="fic"><Icon name="building" size={21} stroke={1.8} /></div><div><h4>Advanced Manufacturing</h4><p>State-of-the-art production unit in Ahmedabad</p></div></div>
                 <div className="feat"><div className="fic"><Icon name="check" size={21} stroke={1.8} /></div><div><h4>International Standards</h4><p>ISO-aligned quality management processes</p></div></div>
-                <div className="feat"><div className="fic"><Icon name="truck" size={21} stroke={1.8} /></div><div><h4>Reliable Supply Chain</h4><p>4+ Gujarat branches for on-time delivery</p></div></div>
+                <div className="feat"><div className="fic"><Icon name="truck" size={21} stroke={1.8} /></div><div><h4>Reliable Supply Chain</h4><p>Gujarat branches for on-time delivery</p></div></div>
                 <div className="feat"><div className="fic"><Icon name="globe2" size={21} stroke={1.8} /></div><div><h4>Export Expertise</h4><p>Serving clients across 10+ countries</p></div></div>
               </div>
-              <Link className="btn btn--dark" style={{ marginTop: '32px' }} to="/about">Read More About Us <Icon name="arrow" size={17} stroke={2} /></Link>
+              <div style={{ display: 'flex', gap: '14px', marginTop: '32px', flexWrap: 'wrap' }}>
+                <Link className="btn btn--dark" to="/about">More About Us <Icon name="arrow" size={17} stroke={2} /></Link>
+                <Link className="btn btn--ghost" to="/products">Explore More <Icon name="arrow" size={17} stroke={2} /></Link>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -361,12 +381,14 @@ export default function Home() {
       <section className="section section--aura">
         <div className="wrap">
           <Reveal fx="clip">
-            <SectionHead eyebrow="Why Choose Us" title="Our key strengths" text="From premium product quality to reliable supply and responsive customer support — here is what sets Siddhivinayak apart as your trusted chemical manufacturing partner." />
+            <SectionHead center eyebrow="Why Choose Us" title="Why Choose Siddhivinayak" text="From premium raw materials and expert manufacturing to rigorous quality control and after-sales support — here's what sets us apart." />
           </Reveal>
-          <Reveal fx="stagger" className="why-grid">
-            {whys.map(([no, h, p]) => (
-              <div className="why" key={no}>
-                <div className="no">{no}</div>
+          <Reveal fx="stagger" className="why-showcase">
+            {whys.map(({ no, ic, h, p }) => (
+              <div className="why-card" key={no}>
+                <div className={`why-card__ic why-card__ic--${no}`}>
+                  <Icon name={ic} size={32} stroke={1.8} />
+                </div>
                 <h3>{h}</h3>
                 <p>{p}</p>
               </div>
@@ -376,28 +398,9 @@ export default function Home() {
       </section>
 
       {/* ── 4. SPECIALIZED SERVICES ── */}
-      <section className="section bg-paper2">
-        <div className="wrap">
-          <Reveal fx="clip">
-            <SectionHead eyebrow="Our Services" title="Specialized Services" text="We support our customers throughout the entire supply process — from technical consultation and custom manufacturing to quality assurance, packaging, logistics and after-sales support." />
-          </Reveal>
-          <div className="process">
-            <Reveal fx="left" className="proc-steps">
-              {steps.map(([ic, n, h]) => (
-                <div className="proc-step" key={n}>
-                  <div className="pic"><Icon name={ic} size={23} /></div>
-                  <div><div className="pn">{n}</div><h4>{h}</h4></div>
-                </div>
-              ))}
-            </Reveal>
-            <Reveal fx="right" className="proc-media" delay={1}>
-              <img src="/assets/team.jpeg" alt="Our specialized team and facility" />
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      <SpecializedServices />
 
-      {/* ── 5. PRODUCT CATEGORIES ── */}
+      {/* ── PRODUCT CATEGORIES ── */}
       <section className="section">
         <div className="wrap">
           <Reveal fx="clip" className="sec-head" style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', maxWidth:'none', flexWrap:'wrap', gap:'24px' }}>
@@ -430,7 +433,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
+      {/* ── STATS ──
       <section className="section--tight bg-teal">
         <div className="wrap">
           <div className="stats-band">
@@ -440,18 +443,99 @@ export default function Home() {
             <Stat label="Domestic Branches" delay={3}><Counter to={4} suffix="+" /></Stat>
           </div>
         </div>
+      </section> */}
+
+      {/* ── 5. INDUSTRIES WE SERVE (image-based dark section) ── */}
+      <section className="ind-showcase">
+        <div className="wrap">
+          <div className="ind-showcase__inner">
+            <Reveal fx="left" className="ind-showcase__text">
+              <p className="eyebrow" style={{ color: 'var(--teal-300)' }}>Industries We Serve</p>
+              <h2 style={{ color: '#fff', marginTop: '20px', fontSize: 'clamp(1.9rem,3.2vw,2.8rem)', fontFamily: 'var(--f-display)', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-.025em' }}>
+                Serving Customers Across the{' '}
+                <span style={{ color: 'var(--teal-400)' }}>Industrial Spectrum</span>
+              </h2>
+              <p style={{ color: 'rgba(255,255,255,.72)', marginTop: '18px', lineHeight: 1.75, fontSize: '1rem' }}>
+                Siddhivinayak caters to a broad spectrum of industries through its diverse product portfolio. Our core categories — Papers &amp; Textiles, Food Colouring, and Optical Brighteners — are designed to meet the specific needs of manufacturers across different sectors.
+              </p>
+              <div className="ind-list">
+                {industryImages.map((ind) => (
+                  <div className="ind-list-item" key={ind.name}>
+                    <div className="ind-list-dot" />
+                    <span>{ind.name}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal fx="right" delay={1} className="ind-showcase__imgs">
+              {industryImages.map((ind) => (
+                <div className="ind-img-card" key={ind.name}>
+                  <img src={ind.img} alt={ind.name} loading="lazy" />
+                  <div className="ind-img-label">{ind.name}</div>
+                </div>
+              ))}
+            </Reveal>
+          </div>
+        </div>
       </section>
 
-      {/* ── 6. QUALITY & CERTIFICATIONS ── */}
+      {/* ── 6. COMPANY PROFILE ── */}
+      <section className="section bg-paper2">
+        <div className="wrap">
+          <div className="profile-grid">
+            <Reveal fx="left" className="profile-media-wrap">
+              <div className="profile-img">
+                <img src={SLIDES[3].img} alt="Siddhivinayak facility" />
+              </div>
+              <div className="profile-dots">
+                {[0,1,2].map(i => <span key={i} className={i===1?'active':''}></span>)}
+              </div>
+            </Reveal>
+            <Reveal fx="right" delay={1}>
+              <p className="eyebrow">Company Profile</p>
+              <h2 style={{ marginTop: '18px' }}>
+                Siddhivinayak{' '}
+                <span className="text-teal">Group</span>
+              </h2>
+              <p className="lead" style={{ marginTop: '16px' }}>
+                Siddhivinayak Dyes &amp; Chemical Industries combines decades of experience with strong certifications, modern manufacturing practices, and state-of-the-art infrastructure to deliver reliable chemical solutions.
+              </p>
+              <p style={{ marginTop: '12px', color: 'var(--slate)' }}>
+                Our corporate office and production unit in Vasna GIDC, Ahmedabad are equipped with advanced systems for manufacturing, testing, and packaging, ensuring that every product meets the highest quality standards.
+              </p>
+              <p style={{ marginTop: '10px', color: 'var(--slate)' }}>
+                With robust operational capabilities, compliance with regulatory frameworks, and a commitment to innovation, Siddhivinayak continues to strengthen its position as a trusted partner for businesses in India and abroad.
+              </p>
+              <Link className="btn btn--dark" style={{ marginTop: '24px' }} to="/about">
+                View More <Icon name="arrow" size={17} stroke={2} />
+              </Link>
+              <div className="profile-stats">
+                {profileStats.map((s) => (
+                  <div className="profile-stat" key={s.h}>
+                    <div className="profile-stat__ic"><Icon name={s.ic} size={22} /></div>
+                    <h4>{s.h}</h4>
+                    <p>{s.p}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. COMPANY CERTIFICATES ── */}
       <section className="section section--aura">
         <div className="wrap">
           <Reveal fx="clip">
-            <SectionHead center eyebrow="Quality & Certifications" title="Our commitment to quality standards" text="We maintain strict quality assurance at every stage of production, backed by certifications and internationally recognised processes that build confidence with buyers worldwide." />
+            <SectionHead center eyebrow="Company Certificates" title="Our Quality &amp; Certification Standards" text="We maintain strict quality assurance at every stage of production, backed by internationally recognised certifications that build confidence with buyers worldwide." />
           </Reveal>
           <Reveal fx="stagger" className="cert-grid">
             {certs.map((c) => (
               <div className="cert" key={c.h}>
-                <div className="ic"><Icon name={c.ic} size={26} /></div>
+                <div className="cert__ic-wrap">
+                  <div className="ic"><Icon name={c.ic} size={26} /></div>
+                  <div className="cert__badge">Certified</div>
+                </div>
                 <h3>{c.h}</h3>
                 <p>{c.p}</p>
               </div>
@@ -460,26 +544,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 7. INDUSTRIES WE SERVE ── */}
-      <section className="section bg-paper2">
-        <div className="wrap">
-          <Reveal fx="clip">
-            <SectionHead center eyebrow="Industries We Serve" title="Powering colour across every sector" text="Our dye intermediates and specialty chemicals serve a wide range of industries — wherever colour, chemistry and quality matter most." />
-          </Reveal>
-          <Reveal fx="stagger" className="ind-grid" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-            {industries.map((it) => (
-              <div className="ind" key={it.h}>
-                <div className="ic"><Icon name={it.ic} size={27} /></div>
-                <h4>{it.h}</h4>
-                <p>{it.p}</p>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── CLIENTS ── */}
-      <section className="section--tight">
+      <section className="section--tight bg-paper2">
         <div className="wrap">
           <Reveal fx="clip">
             <SectionHead center eyebrow="Our Customers" title="199+ companies trust Siddhivinayak" style={{ marginBottom: '40px' }} />

@@ -4,11 +4,9 @@ export const NAV = [
   { label: "Home", to: "/" },
   { label: "Company", to: "/about", children: [
     { label: "About Us", to: "/about" },
-    { label: "Manufacturing", to: "/manufacturing" },
     { label: "Leadership", to: "/about#leadership" },
   ]},
   { label: "Products", to: "/products" },
-  { label: "Manufacturing", to: "/manufacturing" },
   { label: "Career", to: "/career" },
   { label: "Contact", to: "/contact" },
 ];

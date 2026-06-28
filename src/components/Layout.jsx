@@ -61,7 +61,7 @@ function Header({ onBurger }) {
 function MobileMenu({ open, onClose }) {
   const items = [
     { label: 'Home', to: '/' }, { label: 'About Us', to: '/about' },
-    { label: 'Products', to: '/products' }, { label: 'Manufacturing', to: '/manufacturing' },
+    { label: 'Products', to: '/products' },
     { label: 'Career', to: '/career' }, { label: 'Contact', to: '/contact' },
   ]
   useEffect(() => {
@@ -98,7 +98,7 @@ function Footer() {
           <div>
             <h5>Company</h5>
             <div className="foot-links">
-              <Link to="/about">About Us</Link><Link to="/manufacturing">Manufacturing</Link>
+              <Link to="/about">About Us</Link>
               <Link to="/about#leadership">Leadership</Link><Link to="/career">Career</Link>
             </div>
           </div>
